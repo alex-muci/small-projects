@@ -22,9 +22,13 @@ Function returns an integer result from 0 to 9:
 | 5             | Illegal row       | The file conforms to the format and all moves are for legal columns but the move is for a column that is already full due to previous moves |
 | 6             | Illegal column    | The file conforms to the format but contains a move for a column that is out side the dimensions of the board. i.e. the column selected is greater than X |
 | 7             | Illegal game      | The file conforms to the format but the dimensions describe a game that can never be won |
-| 8             | Invalid file The file is opened but does not conform the format |
+| 8             | Invalid file      | The file is opened but does not conform the format |
 | 9             | File error        | The file can not be found, opened or read for some reason |
 
+
 ---------------------------------------------------------------------------------
-Examples of input files can be found in [tests](http://github.com/alex-muci/small-projects/blob/master/connectN-cli/tests), the last number in a file name is the expected result.
+Examples of input files can be found in [tests](http://github.com/alex-muci/small-projects/blob/master/connectN-cli/tests).
+
+NB: the last number in a file name is the expected result.
+
 E.g. running "$ python connectz.py tests/test2.txt" in the CLI should return "2"
