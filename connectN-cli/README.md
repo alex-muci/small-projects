@@ -1,4 +1,4 @@
-# [Connect](http://github.com/alex-muci/small-projects/connectN-cli)
+# [Connect](https://github.com/alex-muci/small-projects/tree/master/connectN-cli)
 
 Generalization of the classical [Connect 4 game](https://en.wikipedia.org/wiki/Connect_Four) using only standard Python 3.6 libraries (no numpy allowed, which will make winning checks faster).
 

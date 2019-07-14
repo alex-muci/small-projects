@@ -7,7 +7,7 @@ import sys
 # from typing import List
 
 
-def CODE_OUTPUT(out): print(out); return  # sys.exit()
+def CODE_OUTPUT(out): print(out); sys.exit()
 
 def is_straight(_s): return 0 not in _s and len(_s) == 1
 
@@ -201,21 +201,21 @@ if __name__ == '__main__':
     try:
         script, input_file = sys.argv
     except:  # ValueError:
-        CODE_OUTPUT("connectz.py: Provide one input file"); sys.exit()
+        CODE_OUTPUT("connectz.py: Provide one input file")
 
     try:
         with open(input_file, 'r') as in_file:
             lines = in_file.readlines()
     except:
         # ERROR Code 9: File error
-        CODE_OUTPUT(9); sys.exit()
+        CODE_OUTPUT(9)
 
     try:
         width, height, win_moves = list(map(int, lines[0].rstrip().split()))
         moves = list(map(int, lines[1:]))
     except:
         # ERROR Code 8: Invalid file
-        CODE_OUTPUT(8); sys.exit()
+        CODE_OUTPUT(8)
 
     game = ConnectZ(width, height, win_moves)
 
