@@ -1,6 +1,10 @@
 # [Connect](https://github.com/alex-muci/small-projects/tree/master/connectN-cli)
 
-Generalization of the classical [Connect 4 game](https://en.wikipedia.org/wiki/Connect_Four) using only standard Python 3.6 libraries (no numpy allowed, which will make winning checks faster).
+Generalization of the classical [Connect 4 game](https://en.wikipedia.org/wiki/Connect_Four) using only standard Python 3.6 libraries (no numpy allowed and one single file (i.e. short).
+
+
+#### TODO: file written assuming single running from CLI (note sys.exit() in the code) - needs refactoring (from class.run() to 1-2 functions encapsulating classes) in order to also run automatic tests.
+
 
 ### *Use*
 ============
@@ -15,7 +19,7 @@ where:
 - the first line contains three integers, respectively, the (i) no of columns and (ii) no of rows for the board/frame and the (iii) minimum number of adjacent pieces/counters required to win a game.
 - each subsequent line is a single integer representing a move in the game (column where piece drops), starting with player one and alternating.
 
-### *Result*
+#### *Result*
 ============
 
 Running the above command returns an integer between 0 and 9 (included) with the following meaning:
