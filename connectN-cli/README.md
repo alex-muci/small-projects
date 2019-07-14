@@ -1,16 +1,17 @@
 Generalization of the classical Connect 4 game using only standard Python 3.6 libraries (no numpy allowed, which will make winning checks faster).
 
 Class built to be called from this script by running:
+
     python connectz.py [inputfilename]
 
-    where:
-    [inputfilename] is an ASCII textfile with the following features:
-    - the first line contains three integers, respectively, the (i) no of columns and (ii) rows of the board/frame
-    and the (iii) minimum number of adjacent pieces/counters required to win a game.
-    - each subsequent line is a single integer representing a move in the game (column where piece drops),
-    starting with player one and alternating.
+where:
+[inputfilename] is an ASCII textfile with the following features:
+
+- the first line contains three integers, respectively, the (i) no of columns and (ii) rows of the board/ frame and the (iii) minimum number of adjacent pieces/counters required to win a game.
+- each subsequent line is a single integer representing a move in the game (column where piece drops), starting with player one and alternating.
 
 Function returns an integer result from 0 to 9:
+
 | integer       | reason            |  description  |
 | ------------- | -------------     | ------------- |
 | 0             | Draw              | This happens when every possible space in the frame was filled with a counter, but neither player achieved a line of the required length |
