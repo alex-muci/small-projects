@@ -1,6 +1,7 @@
 Generalization of the classical [Connect 4 game](https://en.wikipedia.org/wiki/Connect_Four) using only standard Python 3.6 libraries (no numpy allowed, which will make winning checks faster).
 
 Use: run the following command in the CLI
+
     $ python connectz.py [inputfilename]
 
 where:
@@ -28,4 +29,8 @@ Running the command returns an integer between 0 and 9 with the following meanin
 ---------------------------------------------------------------------------------
 Examples of input files can be found in [tests](http://github.com/alex-muci/small-projects/blob/master/connectN-cli/tests).
 
-NB: the last number in a file name is the expected result. E.g. running "$ python connectz.py tests/test2.txt" in the CLI should return "2"
+NB: the last number in a file name is the expected result. E.g. running
+
+"$ python connectz.py tests/test2.txt" in the CLI
+
+should return "2"
