@@ -1,6 +1,9 @@
 Generalization of the classical [Connect 4 game](https://en.wikipedia.org/wiki/Connect_Four) using only standard Python 3.6 libraries (no numpy allowed, which will make winning checks faster).
 
-Use: run the following command in the CLI
+#### *Use*
+============
+
+Run the following command in the CLI
 
     $ python connectz.py [inputfilename]
 
@@ -10,7 +13,10 @@ where:
 - the first line contains three integers, respectively, the (i) no of columns and (ii) rows of the board/ frame and the (iii) minimum number of adjacent pieces/counters required to win a game.
 - each subsequent line is a single integer representing a move in the game (column where piece drops), starting with player one and alternating.
 
-Running the command returns an integer between 0 and 9 with the following meaning:
+#### *Result*
+============
+
+Running the above command returns an integer between 0 and 9 (included) with the following meaning:
 
 | integer       | reason            |  description  |
 | ------------- | -------------     | ------------- |
@@ -26,11 +32,12 @@ Running the command returns an integer between 0 and 9 with the following meanin
 | 9             | File error        | The file can not be found, opened or read for some reason |
 
 
----------------------------------------------------------------------------------
-Examples of input files can be found in [tests](http://github.com/alex-muci/small-projects/blob/master/connectN-cli/tests).
+#### *Examples*
+============
+Tests or examples of input files can be found in [examples](http://github.com/alex-muci/small-projects/blob/master/connectN-cli/examples).
 
 NB: the last number in a file name is the expected result. E.g. running
 
-"$ python connectz.py tests/test2.txt" in the CLI
+    $ python connectz.py examples/test2.txt in the CLI
 
-should return "2"
+should return 2.
