@@ -102,3 +102,10 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# robot framework
+report.html
+log.html
+output.xml
+
+.idea
