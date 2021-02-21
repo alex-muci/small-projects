@@ -52,4 +52,3 @@ GET existing users, use JSONPath for very short but powerful queries
     String      $[0]..lat                 -37.3159    # any matching child
     Integer     $..id                     maximum=5   # multiple matches
     # [Teardown]  Output  $[*].email        # outputs all emails as an array
-
