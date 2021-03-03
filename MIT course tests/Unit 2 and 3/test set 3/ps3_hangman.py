@@ -82,7 +82,6 @@ def getAvailableLetters(lettersGuessed):
     return "".join(available_letters_list)
 
 
-
 def hangman(secretWord):
     '''
     secretWord: string, the secret word to guess.
@@ -165,5 +164,5 @@ if __name__ == "__main__":
     # and run this file to test! (hint: you might want to pick your own
     # secretWord while you're testing)
     # secretWord while you're testing)
-    secretWord = 'else'  # chooseWord(wordlist).lower()
+    secretWord = chooseWord(wordlist).lower()
     hangman(secretWord)
