@@ -1,0 +1,46 @@
+Searching algorithm:
+1. Bubble sort:
+    swap elements in pair, when reach the end start over; complexity: O(n^2)
+2. Selection sort:
+   get minimum element in L at start (in L[0]), do same for L[1:] and so on; slightly better, but still O(n^2)
+3. Merge sort: (divide and conquer)
+   If a list has more than 2 elements, split it in two and sort each sublist, and so on.
+   Merge by just comparing first element of each sublist.
+   Merging is linear in the lenght of the list, breaking up the problem is O(log n) = O(n log)
+
+
+====
+
+def bubble_sort(L):
+    swap = False
+    while not swap:                 # multiple passes
+        swap = True
+        for j in range(1, len(L)):  # comparison
+            if L[j-1] > L[j]:
+                swap = False
+                temp = L[j]
+                L[j] = L[j-1]
+                L[j-1] = temp
+
+def selection_sort(L):
+    suffixSt = 0
+    while suffixSt != len(L):
+        for i in range(suffixSt, len(L)):
+            if L[i] < L[suffixSt]:
+                L[suffixSt], L[i] = L[i], L[suffixSt]
+        suffixSt += 1
+
+def selSort(L):
+    for i in range(len(L) - 1):
+        minIndx = i
+        minVal = L[i]
+        j = i+1
+        while j < len(L):
+            if minVal > L[j]:
+                minIndx = j
+                minVal = L[j]
+            j += 1
+        if minIndx != i:
+            temp = L[i]
+            L[i] = L[minIndx]
+            L[minIndx] = temp

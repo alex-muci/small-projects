@@ -1,0 +1,183 @@
+How to evaluate efficiency:
+1. time it  (depends on dataset, computer, ...)
+2. count operations (e.g. no. of primitive operations)
+3. order of growth  <--- most appropriate, it gives how it scales vs input
+
+Cases
+- Best (find element in a list, by chance the first),
+- average (practical measure),
+- worst cases (e.g. linear)  <--- focus on this (when size large)
+
+types of order orders of groth:
+  - constant O(1)
+  - logarthmic O(log n), e.g. bisection search or binary search
+  - linear O(n), e.g. search a list, factorial (incl. recursive)
+  - log-linear: n * log n  O(n log n), e.g. merge sort
+  - polynomial O(n^const), e.g. n^2 quadratic for two nested loops
+  - exponential O(const^n). e.g. Tower of Hanoi (a recursive function that call more recursive functions)
+                            or generate all subsets of a set (2^n)
+
+Big Oh: asymptotic behaviour
+
+Law of addition for O(): filter the dominant
+e.g. two consecutive loops, say O(n) and then O(log n) = O(n)
+
+Law of multiplication for O()
+e.g. two nested loops, say O(n) inside O(n) = O(n^2)
+
+
+========================================================================
+Example 1
+
+def program1(x):
+    total = 0
+    for i in range(1000):
+        total += i
+
+    while x > 0:
+        x -= 1
+        total += x
+
+    return total
+
+
+In the best case scenario, x is less than or equal to 0.
+We first execute the assignment total = 0 for one step. Next we execute the for i in range(1000) loop.
+This loop is executed 1000 times and has three steps (one for the assignment of i each time through the loop,
+as well as two for the += operation) on each iteration. We next check if x > 0 - it is not so we do not enter the loop.
+Adding one more step for the return statement, in the best case we execute 1 + 3*1000 + 1 + 1 = 3003 steps.
+
+In the worst case scenario, x is a large positive number.
+In this case, we first execute the assignment total = 0 for one step.
+Next we execute the first loop 1000 times (3000 total steps), then we execute the second loop (while x > 0) n times.
+This loop has five steps (one for the conditional check, x > 0, and two each for the -= and += operations).
+When we finally get to the point where x = 0, we execute the conditional check x > 0 one last time - since it is not,
+we do not enter the loop. Adding one more step for the return statement,
+in the worst case we execute 1 + 3*1000 + 5*n + 1 + 1 = 5*n + 3003 steps.
+
+
+=========
+Example 2
+ef program2(x):
+    total = 0
+    for i in range(1000):
+        total = i
+
+    while x > 0:
+        x = x//2
+        total += x
+
+    return total
+
+n the best case scenario, x is less than or equal to 0.
+We first execute the assignment total = 0 for one step. Next we execute the for i in range(1000) loop.
+This loop is executed 1000 times and has two steps (one for the assignment of i each time through the loop,
+as well as one for the = operation) on each iteration. We next check if x > 0 - it is not so we do not enter the loop.
+Adding in one step for the return statement, in the best case we execute 1 + 2*1000 + 1 + 1 = 2003 steps.
+
+In the worst case scenario, x is a large positive number.
+In this case we first execute the assignment total = 0 for one step, then we execute the first loop
+1000 times (2000 total steps).
+Finally execute the second loop (while x > 0) log2(n) + 1 times. This is tricky!
+Because we divide x by 2 every time through the loop, we only execute this loop a logarithmic number of times.
+log2(n) divisions of x by 2 will get us to x = 1; we'll need one more division to get x <= 0 .
+This while loop has five steps (one for the conditional check, x > 0, and two each for the //= and += operations).
+When we finally get to the point where x = 0, we execute the conditional check x > 0 one last time - since it is not,
+we do not enter the loop. Adding in one step for the return statement,
+in the worst case we execute 1 + 2*1000 + 5*(log2(n) + 1) + 1 + 1 = 5*log2(n) + 2008 steps.
+
+============
+Example 3
+
+def program3(L):
+    totalSum = 0
+    highestFound = None
+
+    for x in L:
+        totalSum += x
+
+    for x in L:
+        if highestFound == None:
+            highestFound = x
+        elif x > highestFound:
+            highestFound = x
+
+    return (totalSum, highestFound)
+
+In the best case scenario, L is an empty list.
+Thus we execute only the first two assignment statements, then the return statement.
+Therefore in the best case we execute 3 steps.
+Note that since the list is empty, no assignments are performed in the for x in L lines.
+
+In the worst case scenario, L is a list with its elements sorted in increasing order (eg, [1, 3, 5, 7, ...]).
+In this case we execute the first two assignment statements (2 steps).
+Next we execute the first loop n times.
+This first loop has three steps (one for the assignment of x each time through the loop,
+as well as two for the += operation), adding 3*n steps.
+
+Finally we execute the second loop n times. The first time we execute this loop, we perform 3 steps -
+one for the assignment of x; then we run the check if highestFound == None, and finding it to be True,
+we execute the assignment highestFound = x.
+
+The next (n-1) times we execute this loop, we perform 4 steps: one for the assignment of x,
+then we run the check if highestFound == None, and finding it to be False, we run the check elif x > highestFound.
+Since this is always True (the list is sorted in increasing order), we execute the assignment highestFound = x.
+Therefore in the second loop we execute 3 + (n-1)*4 = 3 + 4*n - 4 = 4*n - 1 steps.
+
+Finally we execute the return statement, which is one more step.
+
+Pulling this all together, we can see that in the worst case we execute 2 + 3*n + 4*n - 1 + 1= 7*n + 2 steps.
+
+========
+Example 4
+def program4(L):
+    multiples = []
+    for x in L:
+        for y in L:
+            multiples.append(x*y)
+    return multiples
+
+In the best case scenario, L is an empty list.
+So we execute only the first assignment statement,
+then the return statement. Thus in the best case we execute 2 steps.
+Note that since the list is empty, no assignments are performed in the for x in L line.
+
+In the worst case scenario, L is a long list.
+In this case we go through the loop for x in L n times.
+Every time through this loop, we execute an assignment of a value to x, and then the inner loop for y in L.
+The assignment takes 1 step on each iteration; how many steps does the inner loop take on each iteration?
+The inner loop has three operations (assignment of a value to y, x*y, and list appending).
+So the inner loop executes 3*n times on each iteration of the outer loop.
+Thus the nested loop structure is executed n * (3*n + 1) = 3*n**2 + n times!
+
+Adding in two steps (for the first assignment statement, and the return statement) we see that in the worst case, t
+his program executes 3*n**2 + n + 2 steps.
+
+========
+Example 5
+def program5(L):
+    squares = []
+    for x in L:
+        for y in L:
+            if x == y:
+                squares.append(x*y)
+    return squares
+
+In the best case scenario, L is an empty list.
+So we execute only the first assignment statement, then the return statement.
+Thus in the best case we execute 2 steps.
+Note that since the list is empty, no assignments are performed in the for x in L line.
+
+In the worst case scenario, L is a long list of one repeated number (ie [2, 2, 2, 2, ...].
+In this case we go through the loop for x in L n times. Every time through this loop, we perform one assignment of
+a value to the variable x, then we execute the inner loop for y in L n times.
+
+The inner loop performs one assignment of a value to the variable y.
+It then has one operation that is checked every time (if x == y).
+Since the WORST case is when the list is composed of identical elements, this check is always true -
+so the third and fourth operations (x*y, and list appending) are always performed.
+So the inner loop executes 4*n times on each iteration of the outer loop.
+Thus the nested loop structure is executed n * (4*n + 1) = 4*n**2 + n times!
+
+Adding in two steps (for the first assignment statement, and the return statement) we see that in the worst case,
+this program executes 4*n**2 + n + 2 steps.

@@ -1,0 +1,43 @@
+Searching algorithm:
+1. brute: linear
+2. bisection search (but list must be sorted):
+   O(n log n) with recursion (n cost is for copying hte list), O(log n) keeping track of the list (no copies)
+
+
+In computer programming, indirection (also called dereferencing) is the ability to reference something using a name,
+reference, or container instead of the value itself. The most common form of indirection is the act of
+manipulating a value through its memory address. For example, accessing a variable through the use of a pointer.
+
+====
+Example 1
+def search1(L, e):
+    for i in range(len(L)):
+        if L[i] == e:
+            return True
+        if L[i] > e:
+            return False
+    return False
+
+Example 2
+def search2(L, e):
+    for i in L:
+        if i == e:
+            return True
+        elif i > e:
+            return False
+    return False
+
+Example 3
+def search3(L, e):
+    if L[0] == e:
+        return True
+    elif L[0] > e:
+        return False
+    else:
+        return search3(L[1:], e)
+
+
+NB:
+- search and search2 return the same answers, but
+- search and search3 return the same answers provided L is non-empty and e is in L
+  if empty search3 throws an error, also if e is not in L it will go to the case where L is empty

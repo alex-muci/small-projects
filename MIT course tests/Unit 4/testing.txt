@@ -1,0 +1,18 @@
+TESTING
+
+1. Black-box testing
+
+Black-box testing is a method of software testing that tests the functionality of
+an application. Recall from the lecture that a way to think about black-box testing
+is to look at both:
+ - The possible paths through the specification.
+ - The possible boundary cases.
+This is a kind of testing that is independent of the actual implementation of a function.
+
+2. Glass-box testing
+It is a path-complete glass box test suite would find test cases that go through
+every possible path in the code.
+This is different from black-box testing, because in black-box testing you only have the function specification.
+For glass-box testing, you actually know how the function you are testing is defined.
+Thus you can use this definition to figure out how many different paths through the code exist,
+and then pick a test suite based on that knowledge.
