@@ -8,7 +8,7 @@ Cases
 - average (practical measure),
 - worst cases (e.g. linear)  <--- focus on this (when size large)
 
-types of order orders of groth:
+types of order orders of growth:
   - constant O(1)
   - logarthmic O(log n), e.g. bisection search or binary search
   - linear O(n), e.g. search a list, factorial (incl. recursive)

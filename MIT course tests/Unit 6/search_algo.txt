@@ -1,7 +1,7 @@
 Searching algorithm:
 1. brute: linear
 2. bisection search (but list must be sorted):
-   O(n log n) with recursion (n cost is for copying hte list), O(log n) keeping track of the list (no copies)
+   O(n log n) with recursion (n cost is for copying the list), O(log n) keeping track of the list (no copies)
 
 
 In computer programming, indirection (also called dereferencing) is the ability to reference something using a name,

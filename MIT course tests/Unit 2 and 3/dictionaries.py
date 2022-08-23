@@ -38,12 +38,14 @@ def fib(x):
     else:
         return fib(x-1) + fib(x-2)
 
-def fib2(n, d):
+def fib2(n, d=None):
     """ a much more efficient Fibonacci using dict (memoization)
         e.g. n=34 generates just 57 calls for fib2 vs. over 11 million for for fib!
     """
     # global numFibCalls
     # numFibCalls += 1
+    d = {1: 1, 2: 2} if d is None else d  # base cases as default
+
     if n in d:  # if already computed, just look it up  --- of course better using lru_cache
         return d[n]
     else:
