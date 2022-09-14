@@ -17,7 +17,7 @@ def word_finder(w: str, dictionary_data: str) -> str:
     else: # try and get the closest word, and ask user
         close_word = get_close_matches(w, dictionary)
         if close_word:  # not empty
-            yn = input(f"Did you mean {close_word}? Y for yes and N for no: ")
+            yn = input(f"Did you mean '{close_word[0]}'? Y for yes and N for no: ")
             if yn == "Y": res = dictionary[close_word[0]]
             elif yn == "N": res = "Cannot find such word."
             else: res = "No such an option. Goodbye."
